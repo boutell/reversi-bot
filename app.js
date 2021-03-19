@@ -24,6 +24,8 @@ function input(msg) {
     stop(msg, words);
   } else if (command.match(/^[a-z][0-9]$/)) {
     move(msg, command);
+  } else {
+    help(msg);
   }
 }
 
@@ -220,4 +222,19 @@ function end(msg, game) {
   const message = render(game, true);
   msg.reply(message);
   delete games[msg.channel.id];
+}
+
+function help(msg) {
+  msg.reply(
+`To start a game of reversi, type:
+
+\`reversi start\`
+
+To stop the current game, type:
+
+\`reversi stop\`
+
+There is only one game at a time per channel.
+`
+  );
 }
