@@ -56,6 +56,8 @@ reversi start
 <p>reversi-bot does not record anything, and does not pay attention to anything that doesn't look like a reversi command or game move. We won't share your data with anyone else.</p>
 <h3 id="credits">Credits</h3>
 <p>reversi-bot was written by <a href="https://boutell.dev/">Tom Boutell</a>. Based on an idea by thepronoob.</p>
+<h3 id="source-code">Source Code</h3>
+<p><a href="https://github.com/boutell/reversi-bot/">Available on GitHub.</a></p>
 </body>
 </html>
 `
