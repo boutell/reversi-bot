@@ -1,0 +1,27 @@
+{
+  "name": "reversi-bot",
+  "version": "1.0.0",
+  "description": "Play Reversi on a Discord server.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boutell/reversi.git"
+  },
+  "keywords": [
+    "reversi",
+    "discord"
+  ],
+  "author": "Thomas Boutell",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/boutell/reversi/issues"
+  },
+  "homepage": "https://github.com/boutell/reversi#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "node-fetch": "^2.6.1"
+  }
+}
