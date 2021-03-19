@@ -194,8 +194,8 @@ function testMove(game, x, y, andMove) {
     let nx = x;
     let ny = y;
     for (let i = 0; (i < game.size); i++) {
-      nx = nx + direction[0];
-      ny = ny + direction[1];
+      nx += direction[0];
+      ny += direction[1];
       if ((nx < 0) || (nx >= game.size) || (ny < 0) || (ny >= game.size)) {
         break;
       }
@@ -210,8 +210,8 @@ function testMove(game, x, y, andMove) {
           let tx = x;
           let ty = y;
           for (let j = 0; (j <= i); j++) {
-            tx = x + direction[0];
-            ty = y + direction[1];
+            tx += direction[0];
+            ty += direction[1];
             game.board[ty][tx] = game.turn;
           }
         }
