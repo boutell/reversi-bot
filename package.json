@@ -15,7 +15,7 @@
     "discord"
   ],
   "author": "Thomas Boutell",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/boutell/reversi/issues"
   },
