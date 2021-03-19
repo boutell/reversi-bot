@@ -3,6 +3,67 @@ const client = new Discord.Client();
 
 const games = {};
 
+const express = require('express')
+const app = express()
+ 
+app.get('/', function (req, res) {
+  res.send(
+`<!DOCTYPE html>
+<html>
+<head>
+<title>reversi-bot</title>
+<style>
+body {
+  font-family: Helvetica;
+  max-width: 800px;
+  margin: auto;
+  background-color: black;
+  color: white;
+}
+a.button {
+  text-decoration: none;
+  color: black;
+  border-radius: 8px;
+  background-color: white;
+  padding: 12px;
+}
+a {
+  color: white;
+  text-decoration: underline;
+}
+h1, h2, h3, h4, p {
+  margin-bottom: 2em;
+}
+pre {
+  font-size: 150%;
+  margin-bottom: 32px;
+}
+</style>
+</head>
+
+<body>
+<H1>reversi-bot</h1>
+<h2>A reversi game bot for your discord server</h2>
+<h3><a class="button" href="https://discord.com/oauth2/authorize?client_id=822232357893439498&scope=bot">Add this bot to your server</a></h3>
+<h2>How to use</h2>
+<p>In any channel, just type:</p>
+<pre>
+reversi start
+</pre>
+<h3 id="terms-of-service">Terms of service</h3>
+<p>reversi-bot is provided for fun. Play nice. We reserve the right to remove it from servers or shut it down at any time.</p>
+<h3 id="privacy-policy">Privacy policy</h3>
+<p>reversi-bot does not record anything, and does not pay attention to anything that doesn't look like a reversi command or game move. We won't share your data with anyone else.</p>
+<h3 id="credits">Credits</h3>
+<p>reversi-bot was written by <a href="https://boutell.dev/">Tom Boutell</a>. Based on an idea by thepronoob.</p>
+</body>
+</html>
+`
+  );
+});
+ 
+app.listen(parseInt(process.env.PORT || '3000'));
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
