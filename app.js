@@ -238,7 +238,7 @@ function stop(msg, words) {
 
 function render(game, ended) {
   const tokens = [ 'X', 'O' ];
-  let message = "```   ";
+  let message = "```\n   ";
   for (let i = 0; (i < game.size); i++) {
     message += ' ' + String.fromCharCode('a'.charCodeAt(0) + i) + ' ';
   }
