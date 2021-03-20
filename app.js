@@ -237,7 +237,7 @@ function stop(msg, words) {
 }
 
 function render(game, ended) {
-  const tokens = [ 'X', 'O' ];
+  const tokens = [ '🔵', '🔴' ];
   let message = "```\n   ";
   for (let i = 0; (i < game.size); i++) {
     message += ' ' + String.fromCharCode('a'.charCodeAt(0) + i) + ' ';
@@ -261,7 +261,7 @@ function render(game, ended) {
       }
     }  
     game.players.forEach((player, index) => {
-      message += `${player.username} is \`${tokens[index]} (${scores[index]})\`\n`;
+      message += `${player.username} is \`${tokens[index]}\` (${scores[index]})\n`;
     });
     if (ended) {
       const winner = scores[0] > scores[1] ? 0 : 1;
@@ -275,7 +275,7 @@ function render(game, ended) {
       }
     }
   } else {
-    message += 'To be `O`, make the second move now, like `reversi f5`';
+    message += `To be \`${tokens[1]}\`, make the second move now, like \`reversi f5\``;
   }
   console.log(message.replace(/```/g, ''));
   return message;
