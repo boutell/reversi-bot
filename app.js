@@ -75,7 +75,7 @@ client.on('message', input);
 client.login(process.env.REVERSI_BOT_TOKEN);
 
 function input(msg) {
-  const words = msg.content.split(' ');
+  const words = msg.content.toLowerCase().split(' ');
   const context = words.shift();
   if (context !== 'reversi') {
     return;
@@ -237,20 +237,25 @@ function stop(msg, words) {
 }
 
 function render(game, ended) {
-  const tokens = [ '🔵', '🔴' ];
-  let message = "```\n   ";
+  const open = '⚫️'
+  const numerals = [ '①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧' ];
+  const alphabet = [ '🅐', '🅑', '🅒', '🅓', '🅔', '🅕', '🅖', '🅗' ];
+  const tokens = [ '🔴', '🔵' ];
+  // Emoji-width space, not a regular space character
+  const space = 'ㅤ';
+  let message = `\`\`\`\n${space}${space}${space}`;
   for (let i = 0; (i < game.size); i++) {
-    message += ' ' + String.fromCharCode('a'.charCodeAt(0) + i) + ' ';
+    message += `${space}${alphabet[i]}${space}`;
   }
-  message += "\n" + game.board.map((row, index) => {
-    return ` ${index + 1} ` + row.map(cell => {
+  message += "\n\n" + game.board.map((row, index) => {
+    return `${space}${numerals[index]}${space}` + row.map(cell => {
       if (cell === null) {
-        return ' . ';
+        return `${space}${open}${space}`;
       } else {
-        return ` ${tokens[cell]} `;
+        return `${space}${tokens[cell]}${space}`;
       }
     }).join('');
-  }).join('\n') + "```\n";
+  }).join('\n\n') + "```\n";
   if (game.players[game.turn]) {
     const scores = [ 0, 0 ];
     for (let y = 0; (y < game.size); y++) {
